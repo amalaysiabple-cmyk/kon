@@ -1,0 +1,164 @@
+global:
+  default_equity_usd: 1000
+  risk_per_trade_pct: 2.0
+  liq_buffer_seconds: 60
+  log_path: "logs/calculations.jsonl"
+
+pairs:
+  BTCUSDT:
+    maintenance_margin: 0.005
+    max_leverage: 5
+    quarterly_symbol: "BTCUSDT_260626"
+    lrm:
+      proximity_band_atr: 0.5
+      min_cluster_density: 0.65
+      min_oi_usd: 100000000
+      kernel_bandwidth_pct: 0.002
+    fbpd:
+      min_divergence: 0.0010
+      funding_filter: 0.0001
+    mp:
+      gate: 0.65
+      hazard_min_rate: 1.5
+      weights:
+        cvd_velocity: 0.25
+        liq_hazard: 0.30
+        spread_compression: 0.15
+        taker_aggression: 0.20
+        book_pressure: 0.10
+      bias: 0.5
+    entry:
+      limit_offset_pct: 0.05
+
+  ETHUSDT:
+    maintenance_margin: 0.005
+    max_leverage: 4
+    quarterly_symbol: "ETHUSDT_260626"
+    lrm:
+      proximity_band_atr: 0.6
+      min_cluster_density: 0.60
+      min_oi_usd: 50000000
+      kernel_bandwidth_pct: 0.002
+    fbpd:
+      min_divergence: 0.0015
+      funding_filter: 0.0001
+    mp:
+      gate: 0.65
+      hazard_min_rate: 2.0
+      weights:
+        cvd_velocity: 0.25
+        liq_hazard: 0.30
+        spread_compression: 0.15
+        taker_aggression: 0.20
+        book_pressure: 0.10
+      bias: 0.5
+    entry:
+      limit_offset_pct: 0.05
+
+  SOLUSDT:
+    maintenance_margin: 0.01
+    max_leverage: 3
+    quarterly_symbol: "SOLUSDT_260626"
+    lrm:
+      proximity_band_atr: 0.4
+      min_cluster_density: 0.55
+      min_oi_usd: 20000000
+      kernel_bandwidth_pct: 0.003
+    fbpd:
+      min_divergence: 0.0025
+      funding_filter: 0.0002
+    mp:
+      gate: 0.60
+      hazard_min_rate: 3.0
+      weights:
+        cvd_velocity: 0.25
+        liq_hazard: 0.30
+        spread_compression: 0.15
+        taker_aggression: 0.20
+        book_pressure: 0.10
+      bias: 0.5
+    entry:
+      limit_offset_pct: 0.10
+
+  TRXUSDT:
+    maintenance_margin: 0.01
+    max_leverage: 3
+    quarterly_symbol: "TRXUSDT_260626"
+    lrm:
+      proximity_band_atr: 0.4
+      min_cluster_density: 0.55
+      min_oi_usd: 10000000
+      kernel_bandwidth_pct: 0.003
+    fbpd:
+      min_divergence: 0.0030
+      funding_filter: 0.0002
+    mp:
+      gate: 0.60
+      hazard_min_rate: 2.0
+      weights:
+        cvd_velocity: 0.25
+        liq_hazard: 0.30
+        spread_compression: 0.15
+        taker_aggression: 0.20
+        book_pressure: 0.10
+      bias: 0.5
+    entry:
+      limit_offset_pct: 0.10
+
+  DOGEUSDT:
+    maintenance_margin: 0.01
+    max_leverage: 3
+    quarterly_symbol: "DOGEUSDT_260626"
+    lrm:
+      proximity_band_atr: 0.4
+      min_cluster_density: 0.55
+      min_oi_usd: 15000000
+      kernel_bandwidth_pct: 0.003
+    fbpd:
+      min_divergence: 0.0030
+      funding_filter: 0.0002
+    mp:
+      gate: 0.60
+      hazard_min_rate: 2.5
+      weights:
+        cvd_velocity: 0.25
+        liq_hazard: 0.30
+        spread_compression: 0.15
+        taker_aggression: 0.20
+        book_pressure: 0.10
+      bias: 0.5
+    entry:
+      limit_offset_pct: 0.10
+
+  ADAUSDT:
+    maintenance_margin: 0.01
+    max_leverage: 3
+    quarterly_symbol: "ADAUSDT_260626"
+    lrm:
+      proximity_band_atr: 0.4
+      min_cluster_density: 0.55
+      min_oi_usd: 15000000
+      kernel_bandwidth_pct: 0.003
+    fbpd:
+      min_divergence: 0.0030
+      funding_filter: 0.0002
+    mp:
+      gate: 0.60
+      hazard_min_rate: 2.5
+      weights:
+        cvd_velocity: 0.25
+        liq_hazard: 0.30
+        spread_compression: 0.15
+        taker_aggression: 0.20
+        book_pressure: 0.10
+      bias: 0.5
+    entry:
+      limit_offset_pct: 0.10
+
+mts:
+  block_before_minutes: 15
+  block_after_minutes: 5
+  boost_window_minutes: [2, 10]
+  boost_multiplier: 1.3
+  funding_proximity_minutes: 10
+  funding_settlement_hours_utc: [0, 8, 16]
